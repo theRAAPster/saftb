@@ -37,6 +37,14 @@ for id, team_name in pickers:
 
 mariadb_connection.close()
 
+points = {}
+
+for row in scores:
+    sum = 0
+    for team in scores[row]:
+        sum += team[1]
+    points[row] = sum
+
 print("""<html>
 <head>
  <title>SAFTB - EPL</title>
@@ -46,23 +54,19 @@ print("""<html>
 
 print("<tr><th>Team</th><th>Pick 1</th><th>Pick 2</th><th>Pick 3</th><th>Pick 4</th><th>Pick 5</th><th>Points</th></tr>")
 
-for row in scores:
-    sum = 0
-    for team in scores[row]:
-        sum += team[1]
-
-    print("<tr><td>{}</td><td>{} ({})</td><td>{} ({})</td><td>{} ({})</td><td>{} ({})</td><td>{} ({})</td><td>{}</td></tr>".format( row,
-                                                                                                                                    scores[row][0][0],
-                                                                                                                                    scores[row][0][1],
-                                                                                                                                    scores[row][1][0],
-                                                                                                                                    scores[row][1][1],
-                                                                                                                                    scores[row][2][0],
-                                                                                                                                    scores[row][2][1],
-                                                                                                                                    scores[row][3][0],
-                                                                                                                                    scores[row][3][1],
-                                                                                                                                    scores[row][4][0],
-                                                                                                                                    scores[row][4][1],
-                                                                                                                                    sum))
+for team in sorted(points, key=points.get, reverse=True):
+    print("<tr><td>{}</td><td>{} ({})</td><td>{} ({})</td><td>{} ({})</td><td>{} ({})</td><td>{} ({})</td><td>{}</td></tr>".format( team,
+                                                                                                                                    scores[team][0][0],
+                                                                                                                                    scores[team][0][1],
+                                                                                                                                    scores[team][1][0],
+                                                                                                                                    scores[team][1][1],
+                                                                                                                                    scores[team][2][0],
+                                                                                                                                    scores[team][2][1],
+                                                                                                                                    scores[team][3][0],
+                                                                                                                                    scores[team][3][1],
+                                                                                                                                    scores[team][4][0],
+                                                                                                                                    scores[team][4][1],
+                                                                                                                                    points[team]))
 
 print("""</table>
 </body></html>""")
