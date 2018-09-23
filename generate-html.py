@@ -1,4 +1,5 @@
 import mysql.connector as mariadb
+import time
 import os
 
 try:
@@ -69,4 +70,10 @@ for team in sorted(points, key=points.get, reverse=True):
                                                                                                                                     points[team]))
 
 print("""</table>
-</body></html>""")
+</body>
+<br />
+<br />
+<footer>
+Last updated: {}
+</footer>
+</html>""".format(time.strftime("%Y-%m-%d %H:%M")))
