@@ -7,4 +7,5 @@ Run sql1.sql
 Run get-teams.py
 Run get-standings.py
 Run sql2.sql
+Run get-standings.py
 Run generate-html.py
