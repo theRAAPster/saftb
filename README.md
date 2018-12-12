@@ -1,5 +1,11 @@
 Collection of random things to track EPL scoring until I can get better organized.
 
+Python note requirements:
+pip freeze > requirements.txt
+
+Python install requirements:
+pip install -r requirements.txt
+
 docker run --name mariadb -e MYSQL_ROOT_PASSWORD=password -p 3306:3306 -d mariadb:10.3.8
 docker exec -it mariadb bash
 
