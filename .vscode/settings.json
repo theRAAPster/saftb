@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "${workspaceFolder}\\env\\Scripts\\python.exe",
+    "python.pythonPath": "${env:SAFTB_PYTHON_LOC}",
     "[python]": {
         "editor.formatOnPaste": false
     },
