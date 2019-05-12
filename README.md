@@ -12,7 +12,7 @@ export SAFTB_PYTHON_LOC=env/bin/python
 Set env variable for python virtual environment (Windows):
 setx SAFTB_PYTHON_LOC "env\\Scripts\\python.exe"
 
-docker run --name mariadb -e MYSQL_ROOT_PASSWORD=password -p 3306:3306 -d mariadb:10.3.8
+docker run --name mariadb -e MYSQL_ROOT_PASSWORD=password -p 3306:3306 -d mariadb:10.4.4
 docker exec -it mariadb bash
 
 Run sql1.sql  
