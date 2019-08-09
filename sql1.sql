@@ -129,6 +129,6 @@ INSERT INTO `dbo`.`api_seasons` (api_id, start_date, end_date, current_match_day
 INSERT INTO `dbo`.`pickers` (season_id, team_name, team_short_name, draft_order)
     VALUES
     (1, 'Cole/Raap', 'C/R', 1),
-    (1, 'Logan/Ferg', 'L/F', 2),
-    (1, 'Trella/Jarrod', 'T/J', 3),
-    (1, 'Jeff/Grego', 'J/G', 4);
+    (1, 'Jeff/Grego', 'J/G', 2),
+    (1, 'Logan/Ferg', 'L/F', 3),
+    (1, 'Trella/Jarrod', 'T/J', 4);
