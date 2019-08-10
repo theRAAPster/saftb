@@ -124,7 +124,7 @@ CONSTRAINT `FK_86` FOREIGN KEY `fkIdx_86` (`team_id`) REFERENCES `dbo`.`api_team
 
 
 
-INSERT INTO `dbo`.`api_seasons` (api_id, start_date, end_date, current_match_day) VALUES (151, '2018-08-10', '2019-05-12', 2);
+INSERT INTO `dbo`.`api_seasons` (api_id, start_date, end_date, current_match_day) VALUES (168, '2019-08-09', '2020-05-17', 1);
 
 INSERT INTO `dbo`.`pickers` (season_id, team_name, team_short_name, draft_order)
     VALUES
