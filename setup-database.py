@@ -4,6 +4,7 @@ import os
 from datetime import datetime
 import time
 import requests
+import boto3
 
 try:
     api_token = os.environ["api_token"]
@@ -11,6 +12,7 @@ try:
     saftb_db_user = os.environ["saftb_db_user"]
     saftb_db_password = os.environ["saftb_db_password"]
     saftb_db_database = os.environ["saftb_db_database"]
+    saftb_s3_bucket = os.environ["saftb_s3_bucket"]
 except KeyError:
     print("Please set the required environment variables")
     exit(1)
@@ -389,3 +391,20 @@ print(report)
 
 cursor.close()
 mariadb_connection.close()
+
+###########
+# transfer to s3
+###########
+
+s3 = boto3.client('s3')
+print("Attempting to upload index.html to " + saftb_s3_bucket + " bucket...")
+file = open('frontend\\code\\index.html', 'rb')
+response = s3.put_object(
+    Body=file,
+    Bucket=saftb_s3_bucket,
+    Key='index.html',
+    ContentType='text/html'
+)
+print(response)
+
+file.close()
